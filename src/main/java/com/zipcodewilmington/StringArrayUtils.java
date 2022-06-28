@@ -1,5 +1,8 @@
 package com.zipcodewilmington;
 
+import java.util.Collections;
+import java.util.*;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -25,7 +28,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        return array[array.length - 1];
     }
 
     /**
@@ -33,7 +36,7 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        return array[array.length - 2];
     }
 
     /**
@@ -42,6 +45,11 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for(String element: array){
+            if(element.equals(value)){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -50,7 +58,12 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        List<String> list = Arrays.asList(array);
+        Collections.reverse(list);
+        String[] reversedArray = list.toArray(array);
+
+        return reversedArray;
+
     }
 
     /**
@@ -58,7 +71,13 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        String reverse = "";
+
+        for(int i = array.length - 1; i >=0; i--){
+            reverse = reverse + array[i];
+        }
+        //how to compare reverse to array?
+         return false;
     }
 
     /**
@@ -66,7 +85,24 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        StringBuilder build = new StringBuilder();
+        for(String s : array) {
+            build.append(s);
+        } String str = build.toString();
+        str = str.toLowerCase();
+
+        boolean allLetters = true;
+
+        for(char ch = 'a'; ch <= 'z'; ch++){
+            if(!str.contains(String.valueOf(ch))){
+                allLetters = false;
+                break;
+            }
+        }
+
+
+
+        return allLetters;
     }
 
     /**
@@ -75,6 +111,7 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
+
         return 0;
     }
 
