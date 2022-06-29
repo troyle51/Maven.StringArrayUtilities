@@ -72,12 +72,18 @@ public class StringArrayUtils {
      */ // TODO
     public static boolean isPalindromic(String[] array) {
         String reverse = "";
-
+        boolean outcome = false;
         for(int i = array.length - 1; i >=0; i--){
             reverse = reverse + array[i];
         }
+
+        String reverseStr = reverse.toString();
+        String reverseArr = array.toString();
         //how to compare reverse to array?
-         return false;
+        if(reverseStr.equalsIgnoreCase(reverseArr)){
+            outcome = true;
+        }
+         return outcome;
     }
 
     /**
@@ -99,9 +105,6 @@ public class StringArrayUtils {
                 break;
             }
         }
-
-
-
         return allLetters;
     }
 
