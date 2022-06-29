@@ -3,6 +3,7 @@ package com.zipcodewilmington;
 import java.util.Collections;
 import java.util.*;
 
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -114,8 +115,13 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-
-        return 0;
+        int count = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i].equals(value)){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -124,7 +130,18 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        List<String> list = Arrays.asList(array);
+
+        for (int i = 0; i < array.length; i++) {
+            int val;
+            if (array[i].equals(valueToRemove)) {
+                val = i;
+                list.remove(val);
+                System.out.println(i);
+            }
+        }
+        System.out.println();
+        return (String[]) list.toArray();
     }
 
     /**
