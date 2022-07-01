@@ -78,12 +78,12 @@ public class StringArrayUtils {
             reverse = reverse + array[i];
         }
 
-        String reverseStr = reverse.toString();
-        String reverseArr = array.toString();
-        //how to compare reverse to array?
-        if(reverseStr.equalsIgnoreCase(reverseArr)){
+        System.out.println(reverse);
+        System.out.println(Arrays.toString(array));
+        if(Arrays.toString(array).contains(reverse)){
             outcome = true;
         }
+        System.out.println(outcome);
          return outcome;
     }
 
@@ -130,18 +130,20 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        List<String> list = Arrays.asList(array);
-
+        int idx = 0;
         for (int i = 0; i < array.length; i++) {
-            int val;
             if (array[i].equals(valueToRemove)) {
-                val = i;
-                list.remove(val);
-                System.out.println(i);
+                idx = idx + i;
             }
         }
-        System.out.println();
-        return (String[]) list.toArray();
+
+        String[] copyArr = new String[array.length - 1];
+        for(int i = 0, j = 0; i < array.length; i++){
+            if (i != idx) {
+                copyArr[j++] = array[i];
+            }
+        }
+        return copyArr;
     }
 
     /**
